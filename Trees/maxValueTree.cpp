@@ -16,27 +16,32 @@ struct Node {
         }
 };
 
-void inorder(Node *root){
+int maxValue(Node *root){
 
-    if(root!= nullptr){
 
-            inorder(root->left);
-            cout<<(root->key)<<" ";
-            inorder(root->right);
+  if(root!= nullptr){
 
+      return max(root->key,max(maxValue(root->left),maxValue(root->right)));
+    }else{
+
+        return INTPTR_MIN;
     }
 
-    
+
 }
 
 
 int main(){
 
-
     Node *root = new Node(10);
     root->left = new Node(20);
     root->right = new Node(30);
-    root->left->left = new Node(50);
+    root->left->left = new Node(40);
+     root->left->left = new Node(50);
+
+    //for printing
+
+   cout<<maxValue(root);
 
     return 0;
 }
