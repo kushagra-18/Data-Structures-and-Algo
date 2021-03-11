@@ -31,7 +31,7 @@ for(int i = 0;i<size;i++){
 int main()
 {
 
-int arr[] = {8,5,0,10,0,20,0};
+int arr[] = {0,1,0,3,12};
 
 int size = sizeof(arr)/sizeof(arr[0]);
 

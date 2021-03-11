@@ -25,31 +25,35 @@ while(curr!= nullptr)
 
 }
 
-Node *insertNode(Node *head,int pos,int key)
+Node *insertNode(Node *head,int key)
 {
 
     Node *temp = new Node(key);
  
- if(pos == 1){
+ if(head == nullptr){
 
-     temp->next = head;
      return temp;
+ }
+
+
+ if(key < head->data){
+
+     temp ->next = head;
+     return temp;
+
  }
 
 
     Node *curr =  head;
 
-    for(int i = 0;i<=pos-2 && curr!=nullptr;i++){
+    while(curr->next!=nullptr && curr->next->data < key){
 
         curr = curr->next;
-
-       } if(curr==nullptr){
-
-            return head;
-        }  
+    }
 
         temp->next = curr->next;
         curr->next = temp;
+    
 
     return head;
   
@@ -68,10 +72,9 @@ int main()
 
     printList(head);
 
-    int pos = 2;
-    int key = 35;
+    int key = 5;
 
-    insertNode(head,pos,key);
+    insertNode(head,key);
 
 
     cout<<"\n After Inserting \n";
