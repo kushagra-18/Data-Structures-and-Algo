@@ -4,39 +4,49 @@
 
 using namespace std;
 
-void tappingRain(int arr[], int size)
+int tappingRain(int arr[], int n)
 {   
     
-    int max,i,count = 0;
+        int i,tot = 0;
 
-    if(arr[0] >= arr[size-1]){
-        max = arr[size-1];
-    }else{
+        if(n<=2){
+            return  0;
+        }
 
-        max = arr[0];
+        vector<int> left(n,0), right(n,0);
+
+
+    left[0] = arr[0];
+    right[n-1] = arr[n-1];
+
+    for(i = 1;i<n;i++){
+
+        left[i] = max(left[i-1],arr[i]);
+        right[n-i-1] = max(right[n-i],arr[n-i-1]);
+
+
     }
 
-    for(i = 1; i<size-1;i++)
-    {
-        count = count + (max - arr[i]);
+    for(i = 0;i<n;i++){
+
+        tot += min(left[i],right[i]) - arr[i];
 
     }
 
-    if(count < 0)
-    count = 0;
 
-cout<<"Max water:"<<count;
+
+return tot;
 
 }
 
 int main()
 {
 
-int arr[] = {5,0,6,2,3};
+int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
 
 int size = sizeof(arr)/sizeof(arr[0]);
 
-tappingRain(arr,size);
+cout<<tappingRain(arr,size);
 
 return 0;
 

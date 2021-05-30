@@ -21,10 +21,10 @@ int main(){
       }
 
 
-  /*for(it = mp.begin(); it!= mp.end();it++)
+  for(it = mp.begin(); it!= mp.end();it++)
     {
         cout<<(*it).first<<" "<<(*it).second<<"\n"; 
-    }*/
+    }
 
     return 0;
 
