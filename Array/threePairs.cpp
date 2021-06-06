@@ -24,7 +24,7 @@ vector <vector<int>> threePairs(vector <int> arr, int n,int target)
             while(j<k)
             {
 
-                targetSum = arr[i] + arr[j] + arr[k];
+                targetSum += arr[i] + arr[j] + arr[k];
 
 
                 if(target==targetSum){

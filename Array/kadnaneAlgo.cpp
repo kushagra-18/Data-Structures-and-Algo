@@ -12,10 +12,7 @@ void kadaneAlgo(int arr[], int size)
     for(i = 1; i<size;i++){
 
         currMax = max(currMax + arr[i],arr[i]);
-        if(currMax > totMax){
-            totMax = currMax;
-
-        }
+        totMax = max(currMax,totMax);
     }
 
 cout<<"Maximum sum of subarray:"<<totMax;
